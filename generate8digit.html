@@ -1,0 +1,16 @@
+<div id="value" style="padding: 2px;width:600px;border:1px solid black;height:4em;margin-bottom:10px;"></div>
+<button onclick="get8DigitHex()" style="margin-right:25px;">Generates 8-digit hexadecimal code</button>
+
+<script type="text/javascript">
+function get8DigitHex() 
+{
+  var unid = generateUnid();
+  document.getElementById("value").innerHTML = unid;
+}
+
+function generateUnid(a)
+{
+  return a ? ( a ^ Math.random() * 16 >> a/4 ).toString(16) : ( [1e6] + 0 ).replace( /[01]/g, generateUnid).toUpperCase();
+}
+
+</script>
